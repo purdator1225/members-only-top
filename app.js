@@ -15,6 +15,8 @@ const bcrypt = require("bcryptjs");
 
 const LocalStrategy = require("passport-local").Strategy;
 
+require("dotenv").config();
+
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
