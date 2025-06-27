@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secret Discussion Board</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1 class="top-heading">
+      Welcome to the <span class="purple">Grape</span>Vine
+    </h1>
+
+    <h2 class="sign-up-heading">
+      Please Sign Up or <span><a href="/">Log In </a></span>
+    </h2>
+    <form class="sign-up-form" action="/sign-up" method="post">
+      <div>
+        <label for="">First Name</label>
+        <input type="text" name="first_name" />
+      </div>
+
+      <div>
+        <label for="">Last Name</label>
+        <input type="text" name="last_name" />
+      </div>
+
+      <div>
+        <label for="">Email</label>
+        <input type="email" name="username" />
+      </div>
+
+      <div>
+        <label for="">Password</label>
+        <input type="password" name="password" />
+      </div>
+
+      <div>
+        <label for="">Confirm Password</label>
+        <input type="password" name="confirmPassword" />
+      </div>
+
+      <button>Sign Up</button>
+      <%if (errors) { %>
+      <h4 class="sign-up-failed">Sign up Failed</h4>
+
+      <% errors.forEach(error => { %>
+      <li class="error-msg"><%=error.msg%></li>
+      <% }) } %>
+    </form>
+  </body>
+</html>

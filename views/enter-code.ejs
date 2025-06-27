@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h4 class="secret-code-title">Secret Code Please</h4>
+    <form class="enter-password-form" action="/update-membership" method="post">
+      <input type="text" name="code" />
+      <button>Enter</button>
+    </form>
+
+    <button class="no-secret-button">
+      <a href="/board">I have no secret</a>
+    </button>
+
+    <% if (typeof error !== 'undefined') { %>
+    <div class="error"><%= error %></div>
+    <% } %>
+  </body>
+</html>

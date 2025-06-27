@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <%if (!user) { %>
+    <h3>Please log in to see messages</h3>
+    <a href="/">Log In</a>
+
+    <% } else { %>
+    <div class="messages-wrapper">
+      <div class="messages-title-wrapper">
+        <h1 class="board-title">The <span class="purple">Grape</span>Vine</h1>
+
+        <span><img class="logo" src="/grapelogo.jpg" alt="grapelogo" /></span>
+      </div>
+
+      <button class="enter-code-link">
+        <a href="/enter-code">Enter Secret Passcode</a>
+      </button>
+
+      <ul class="messages-list">
+        <% messages.forEach(message => { %>
+        <div class="message-wrapper">
+          <% if (user && user.status === 'active') { %>
+          <p><%=message.user_name%> -</p>
+          <% } %>
+          <li>
+            <h4><%=message.content%></h4>
+          </li>
+
+          <% if (user && user.isadmin === true) { %>
+          <form action="/delete-message?id=<%=message.id%>" method="post">
+            <button>Delete Message</button>
+          </form>
+          <% } %>
+        </div>
+        <% }) %>
+      </ul>
+      <% } %>
+    </div>
+  </body>
+</html>
