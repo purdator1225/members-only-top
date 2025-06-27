@@ -1,4 +1,5 @@
 const express = require("express");
+const PORT = process.env.PORT || 3000;
 
 const { query, validationResult, body } = require("express-validator");
 
@@ -238,6 +239,6 @@ app.get("/log-out", (req, res, next) => {
   });
 });
 
-app.listen("3000", () => {
-  console.log("app listening at http://localhost:3000");
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server listening on port ${PORT}`);
 });
